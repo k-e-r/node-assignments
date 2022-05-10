@@ -26,9 +26,9 @@ const Employee = {
 };
 
 // 2-i
-const Person = new Object();
-Person.name = Employee.name;
-Person.email = Employee.email;
-// const { department, startDate, ...Person } = Employee;
+const { department, startDate, ...Person } = Employee;
+// const Person = new Object();
+// Person.name = Employee.name;
+// Person.email = Employee.email;
 
 console.log(Person);
