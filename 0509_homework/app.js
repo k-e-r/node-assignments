@@ -11,8 +11,7 @@ console.log(result);
 // 2-e
 const mySecondArr = myArr.map((val) => val * 2);
 // 2-f
-const ave =
-  [...mySecondArr].reduce((sum, el) => sum + el, 0) / mySecondArr.length;
+const ave = mySum(...mySecondArr) / mySecondArr.length;
 console.log(mySecondArr.filter((val) => val >= ave));
 
 // 2-g
@@ -30,4 +29,6 @@ const Employee = {
 const Person = new Object();
 Person.name = Employee.name;
 Person.email = Employee.email;
+// const { department, startDate, ...Person } = Employee;
+
 console.log(Person);
