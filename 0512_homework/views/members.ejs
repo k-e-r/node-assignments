@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') %>
+<div class="container mt-3">
+  <h1 class="text-secondary">member(s) list</h1>
+  <p class="text-secondary">You can check member(s) list at this page.</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">EMAIL</th>
+        <!-- <th scope="col">EDIT</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <% members.forEach((member) => { %>
+      <tr>
+        <td>
+          <a href="members/<%= member.id %>" class="link-secondary"
+            ><%= member.id %></a
+          >
+        </td>
+        <td><%= member.name %></td>
+        <td><%= member.email %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <div class="d-grid gap-2 col-6 mt-4">
+    <a role="button" href="members/add" class="btn btn-outline-secondary"
+      >add member</a
+    >
+  </div>
+  <div class="d-grid gap-2 d-md-block mt-4">
+    <a role="button" href="/" class="btn btn-outline-secondary">home page</a>
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>

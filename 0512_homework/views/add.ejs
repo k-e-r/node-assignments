@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs') %>
+<div class="container mt-3">
+  <h1 class="text-secondary">add member</h1>
+  <p class="text-secondary">You can add member at this page.</p>
+  <form action="/api/members/" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label text-secondary">NAME</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        placeholder="name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label text-secondary">EMAIL</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="email"
+      />
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-outline-secondary mb-3">ADD</button>
+    </div>
+  </form>
+  <div class="d-grid gap-2 d-md-block mt-4">
+    <a role="button" href="/" class="btn btn-outline-secondary">home page</a>
+    <a role="button" href="/api/members" class="btn btn-outline-secondary"
+      >member(s) list</a
+    >
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>

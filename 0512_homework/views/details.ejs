@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs') %>
+<div class="container mt-3">
+  <h1 class="text-secondary">member details</h1>
+  <p class="text-secondary">You can check member details at this page.</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">EMAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% member.forEach((member) => { %>
+      <tr>
+        <td><%= member.id %></td>
+        <td><%= member.name %></td>
+        <td><%= member.email %></td>
+        <td>
+          <a href="edit/<%= member.id %>" class="link-primary"
+            ><i class="bi bi-pencil-square mx-auto"></i
+          ></a>
+        </td>
+        <td>
+          <a href="delete/<%= member.id %>" class="link-secondary"
+            ><i class="bi bi-trash"></i
+          ></a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <div class="d-grid gap-2 d-md-block mt-4">
+    <a role="button" href="/" class="btn btn-outline-secondary">home page</a>
+    <a role="button" href="/api/members" class="btn btn-outline-secondary"
+      >member(s) list</a
+    >
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>
