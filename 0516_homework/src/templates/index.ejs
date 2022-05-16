@@ -17,15 +17,17 @@
       <tr>
         <td><%= todo.Title %></td>
         <td>
-          <a href="/edit/<%= todo.ID %>" class="btn btn-sm btn-warning">Edit</a>
-          <a
+          <!-- <a
             href="/delete/<%= todo.ID %>?_method=DELETE"
             class="btn btn-sm btn-danger"
             >Delete</a
-          >
-          <!-- <form action="/delete/<%= todo.ID %>?_method=DELETE" method="post">
-                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                        </form> -->
+            > -->
+          <form action="/delete/<%= todo.ID %>?_method=DELETE" method="post">
+            <a href="/edit/<%= todo.ID %>" class="btn btn-sm btn-warning"
+              >Edit</a
+            >
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>
         </td>
       </tr>
       <% } %>
