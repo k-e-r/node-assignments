@@ -71,11 +71,17 @@ router.post("/register", (req, res) => {
   const { email, password } = req.body;
 
   const user = new User(email, password)
-  user.save()
-  .then(result => {
-    res.redirect("/api/login");
-  })
-  .catch(err => console.error(err))
+  user.findEmail()
+    .then(result => {
+      if (result === null) {
+        user.save()
+        .then(result => {
+          res.redirect("/api/login");
+        })
+        .catch(err => console.error(err))
+      }
+    })
+    .catch(err => console.error(err))
 });
 
 router.get("/admin", (req, res) => {
