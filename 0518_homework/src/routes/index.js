@@ -3,6 +3,7 @@ const User = require("../models/user");
 
 router.get("/", (req, res) => {
   const { email } = req.session;
+  console.log('req.session:',req.session);
   let msg = '';
   let contents = [];
 
@@ -40,7 +41,14 @@ router.get("/login", (req, res) => {
 
 router.post("/login", (req, res) => {
   req.session.email = req.body.email;
-  res.redirect("/api");
+  const { email, password } = req.body;
+
+  const user = new User(email, password)
+  user.find()
+    .then(result => {
+      if (result !== null) res.redirect("/api/admin");
+  })
+  .catch(err => console.error(err))
 });
 
 router.get("/register", (req, res) => {
@@ -60,14 +68,14 @@ router.get("/register", (req, res) => {
 });
 
 router.post("/register", (req, res) => {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    const user = new User(email, password)
-    user.save()
-    .then(result => {
-      res.redirect("/api/login");
-    })
-    .catch(err => console.error(err))
+  const user = new User(email, password)
+  user.save()
+  .then(result => {
+    res.redirect("/api/login");
+  })
+  .catch(err => console.error(err))
 });
 
 router.get("/admin", (req, res) => {
